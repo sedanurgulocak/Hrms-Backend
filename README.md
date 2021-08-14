@@ -5,8 +5,7 @@
 
 
 ### :floppy_disk: Entity Relationship Diagram (ERD)
-![Ekran görüntüsü 2021-08-14 232032](https://user-images.githubusercontent.com/64933639/129459121-8dc827a0-0949-4a0b-86e8-56e015a0e23f.png)
-
+![Ekran görüntüsü 2021-08-14 232254](https://user-images.githubusercontent.com/64933639/129459194-aa5525c9-1556-446b-9801-af36c03335f4.png)
 
 
 
