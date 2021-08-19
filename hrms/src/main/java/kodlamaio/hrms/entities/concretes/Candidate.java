@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="candidates")
-@PrimaryKeyJoinColumn(name="id")
+@PrimaryKeyJoinColumn(name="user_id")
 public class Candidate extends User{
 
 	@Column(name="first_name")
