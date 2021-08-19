@@ -18,7 +18,7 @@ public class Result {
 		return this.success;
 	}
 	
-	public String getSuccess() {
+	public String getMessage() {
 		return this.message;
 	}
 }
