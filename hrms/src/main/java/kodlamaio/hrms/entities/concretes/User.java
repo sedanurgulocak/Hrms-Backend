@@ -36,4 +36,5 @@ public class User {
 	private String type;
 	
 	private String passwordAgain;
+	
 }
