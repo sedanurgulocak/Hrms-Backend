@@ -52,6 +52,10 @@ public class JobAdvertisement {
 	private Date endDate;
 	
 	@ManyToOne()
+	@JoinColumn(name="employer_id")
+	private Employer employer;
+	
+	@ManyToOne()
 	@JoinColumn(name="company_id")
 	private Company company;
 	
