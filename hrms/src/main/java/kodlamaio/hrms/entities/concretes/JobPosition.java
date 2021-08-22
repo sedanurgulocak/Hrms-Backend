@@ -9,10 +9,14 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="job_positions")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "job_advertisements"})
 public class JobPosition {
@@ -24,15 +28,5 @@ public class JobPosition {
 	
 	@Column(name="title")
 	private String title;
-	
-	public JobPosition() {
-		
-	}
-
-	public JobPosition(int id, String title) {
-		super();
-		this.id = id;
-		this.title = title;
-	}
 	
 }
