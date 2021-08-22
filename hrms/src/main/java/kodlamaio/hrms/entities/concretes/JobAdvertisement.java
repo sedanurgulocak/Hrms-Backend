@@ -27,15 +27,6 @@ public class JobAdvertisement {
 	@Column(name="id")
 	private int id;
 	
-	
-	private int employerId;
-	
-	private int jobPositionId;
-	
-	private int companyId;
-	
-	private int cityId;
-	
 	@Column(name="description")
 	private String description;
 	
@@ -56,12 +47,15 @@ public class JobAdvertisement {
 	private Employer employer;
 	
 	@ManyToOne()
+	@JoinColumn(name="job_position_id")
+	private JobPosition jobPosition;
+	
+	@ManyToOne()
 	@JoinColumn(name="company_id")
 	private Company company;
 	
 	@ManyToOne()
 	@JoinColumn(name="city_id")
 	private City city;
-	
 	
 }
