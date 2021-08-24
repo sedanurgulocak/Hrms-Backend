@@ -42,6 +42,12 @@ public class JobAdvertisement {
 	@Column(name="end_date")
 	private Date endDate;
 	
+	@Column(name="salary_min")
+	private int salaryMin;
+	
+	@Column(name="salary_max")
+	private int salaryMax;
+	
 	@ManyToOne()
 	@JoinColumn(name="employer_id")
 	private Employer employer;
