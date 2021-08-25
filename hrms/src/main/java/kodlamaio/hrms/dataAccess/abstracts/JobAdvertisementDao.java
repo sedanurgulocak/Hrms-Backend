@@ -8,6 +8,9 @@ import kodlamaio.hrms.entities.concretes.JobAdvertisement;
 
 public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement, Integer>{
 	
+	
 	List<JobAdvertisement> queryJobAdvertisementByStatusTrue();
+	
+	//List<JobAdvertisement> findByOrderByCreateDateDesc();
 
 }
