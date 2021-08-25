@@ -17,4 +17,6 @@ public interface JobAdvertisementService {
 	DataResult<List<JobAdvertisement>> getAllSortedDate();
 	
 	DataResult<List<JobAdvertisement>> getAllActiveAndByCompany(String companyName);
+	
+	Result setJobAdvertisementStatus(int id);
 }
