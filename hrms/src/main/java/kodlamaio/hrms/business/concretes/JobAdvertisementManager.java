@@ -35,4 +35,9 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAll(),"Data listelendi");
 	}
 
+	@Override
+	public DataResult<List<JobAdvertisement>> getAllActives() {
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.queryJobAdvertisementByStatusTrue(), "Aktif iş ilanları listelendi");
+	}
+
 }
