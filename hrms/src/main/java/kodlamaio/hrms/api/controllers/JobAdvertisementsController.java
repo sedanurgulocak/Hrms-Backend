@@ -45,5 +45,10 @@ public class JobAdvertisementsController {
 	public DataResult<List<JobAdvertisement>> getAllSortedDate(){
 		return this.jobAdvertisementService.getAllSortedDate();
 	}
+	
+	@GetMapping("/getAllActiveAndByCompany")
+	public DataResult<List<JobAdvertisement>> getAllActiveAndByCompany(String companyName){
+		return this.jobAdvertisementService.getAllActiveAndByCompany(companyName);
+	}
 
 }
