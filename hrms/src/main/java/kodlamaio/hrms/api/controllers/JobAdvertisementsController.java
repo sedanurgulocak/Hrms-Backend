@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,6 +46,16 @@ public class JobAdvertisementsController {
 	@GetMapping("/getAllSortedDate")
 	public DataResult<List<JobAdvertisement>> getAllSortedDate(){
 		return this.jobAdvertisementService.getAllSortedDate();
+	}
+	
+	@GetMapping("/getAllActiveAndByCompany")
+	public DataResult<List<JobAdvertisement>> getAllActiveAndByCompany(String companyName){
+		return this.jobAdvertisementService.getAllActiveAndByCompany(companyName);
+	}
+	
+	@PutMapping("/setStatus/{id}")
+	public Result setJobAdvertisementStatus(@PathVariable int id) {
+		return this.jobAdvertisementService.setJobAdvertisementStatus(id);
 	}
 
 }

@@ -11,6 +11,7 @@ public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement, Int
 	
 	List<JobAdvertisement> queryJobAdvertisementByStatusTrue();
 	
+	List<JobAdvertisement> getByCompany_Name(String companyName);
 	//List<JobAdvertisement> findByOrderByCreateDateDesc();
 
 }
