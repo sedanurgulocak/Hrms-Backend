@@ -40,5 +40,10 @@ public class JobAdvertisementsController {
 	public DataResult<List<JobAdvertisement>> getAllActives(){
 		return this.jobAdvertisementService.getAllActives();
 	}
+	
+	@GetMapping("/getAllSortedDate")
+	public DataResult<List<JobAdvertisement>> getAllSortedDate(){
+		return this.jobAdvertisementService.getAllSortedDate();
+	}
 
 }
