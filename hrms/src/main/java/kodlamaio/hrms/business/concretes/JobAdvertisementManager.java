@@ -64,4 +64,12 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		return new SuccessDataResult<List<JobAdvertisement>>(jobAdvertisementActives,"Şirkete ait aktif iş ilanları listelendi");
 	}
 
+	@Override
+	public Result setJobAdvertisementStatus(int id) {
+		JobAdvertisement jobAdvertisement = this.jobAdvertisementDao.getById(id);
+		jobAdvertisement.setStatus(false);
+		this.jobAdvertisementDao.save(jobAdvertisement);
+		return new SuccessResult("İş ilanı sonlandırıldı");
+	}
+
 }
