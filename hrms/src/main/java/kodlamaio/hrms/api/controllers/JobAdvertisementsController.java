@@ -35,5 +35,10 @@ public class JobAdvertisementsController {
 	public DataResult<List<JobAdvertisement>> getAll(){
 		return this.jobAdvertisementService.getAll();
 	}
+	
+	@GetMapping("/getAllActives")
+	public DataResult<List<JobAdvertisement>> getAllActives(){
+		return this.jobAdvertisementService.getAllActives();
+	}
 
 }
