@@ -1,5 +1,6 @@
 package kodlamaio.hrms.business.concretes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,18 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		List<JobAdvertisement> jobAdvertisements = jobAdvertisementDao.findAll(Sort.by(Sort.Direction.DESC, "createDate"));
 		return new SuccessDataResult<List<JobAdvertisement>>(jobAdvertisements, "İş ilanları tarihe göre sıralandı");
 
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> getAllActiveAndByCompany(String companyName) {
+		List<JobAdvertisement> jobAdvertisements = this.jobAdvertisementDao.getByCompany_Name(companyName);
+		List<JobAdvertisement> jobAdvertisementActives = new ArrayList<JobAdvertisement>(); 
+		for (JobAdvertisement jobAdvertisement : jobAdvertisements) {
+			if(jobAdvertisement.isStatus()) {
+				jobAdvertisementActives.add(jobAdvertisement);
+			}
+		}
+		return new SuccessDataResult<List<JobAdvertisement>>(jobAdvertisementActives,"Şirkete ait aktif iş ilanları listelendi");
 	}
 
 }
