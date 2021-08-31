@@ -1,6 +1,4 @@
-package kodlamaio.hrms.entities.concretes;
-
-import java.util.Date;
+package kodlamaio.hrms.entities.concretes.cvs;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import kodlamaio.hrms.entities.concretes.Candidate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,31 +18,22 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="job_experiences")
-public class JobExperience {
-	
+@Table(name="social_links")
+public class SocialLink {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="business_name")
-	private String businessName;
+	@Column(name="github_link")
+	private String githubLink;
 	
-	@Column(name="job_position_name")
-	private String jobPositionName;
-	
-	@Column(name="start_date")
-	private Date startDate;
-	
-	@Column(name="end_date")
-	private Date endDate;
-	
-	@Column(name="is_continue")
-	private boolean isContinue;
+	@Column(name="linkedin_link")
+	private String linledinLink;
 	
 	@ManyToOne()
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
-
+	
 }

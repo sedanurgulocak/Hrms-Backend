@@ -1,4 +1,4 @@
-package kodlamaio.hrms.entities.concretes;
+package kodlamaio.hrms.entities.concretes.cvs;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,9 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import kodlamaio.hrms.entities.concretes.Candidate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,22 +18,21 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="social_links")
-public class SocialLink {
+@Table(name="foreign_languages")
+public class ForeignLanguage {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="github_link")
-	private String githubLink;
+	@Column(name="language")
+	private String language;
 	
-	@Column(name="linkedin_link")
-	private String linledinLink;
+	@Column(name="level")
+	private double level;
 	
-	@ManyToOne()
+	@ManyToMany()
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
-	
 }

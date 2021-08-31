@@ -1,4 +1,4 @@
-package kodlamaio.hrms.entities.concretes;
+package kodlamaio.hrms.entities.concretes.cvs;
 
 import java.util.Date;
 
@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import kodlamaio.hrms.entities.concretes.Candidate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
