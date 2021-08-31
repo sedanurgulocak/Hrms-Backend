@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -23,13 +25,14 @@ public class SocialLink {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="candidate_id")
-	private int candidateId;
-	
 	@Column(name="github_link")
 	private String githubLink;
 	
 	@Column(name="linkedin_link")
 	private String linledinLink;
+	
+	@ManyToOne()
+	@JoinColumn(name="candidate_id")
+	private Candidate candidate;
 	
 }
