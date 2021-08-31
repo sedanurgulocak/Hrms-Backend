@@ -43,4 +43,7 @@ public class Candidate extends User{
 	@OneToMany(mappedBy="candidate")
 	private List<JobExperience> jobExperiences;
 	
+	@OneToMany(mappedBy="candidate")
+	private List<ForeignLanguage> foreignLanguages;
+	
 }
