@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import kodlamaio.hrms.entities.concretes.users.Candidate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,5 +28,9 @@ public class CoverLetter {
 	
 	@Column(name="text")
 	private String text;
+	
+	@OneToOne()
+	@JoinColumn(name="candidate_id")
+	private Candidate candidate;
 
 }
