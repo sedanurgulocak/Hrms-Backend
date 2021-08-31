@@ -5,11 +5,13 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import kodlamaio.hrms.entities.concretes.cvs.CoverLetter;
 import kodlamaio.hrms.entities.concretes.cvs.Education;
 import kodlamaio.hrms.entities.concretes.cvs.ForeignLanguage;
 import kodlamaio.hrms.entities.concretes.cvs.JobExperience;
@@ -56,5 +58,9 @@ public class Candidate extends User{
 	
 	@OneToMany(mappedBy="candidate")
 	private List<Skill> skills;
+	
+	@OneToOne(mappedBy="candidate")
+	private CoverLetter coverLetter;
+	
 	
 }
