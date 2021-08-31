@@ -1,4 +1,4 @@
-package kodlamaio.hrms.entities.concretes;
+package kodlamaio.hrms.entities.concretes.users;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import kodlamaio.hrms.entities.concretes.JobAdvertisement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
