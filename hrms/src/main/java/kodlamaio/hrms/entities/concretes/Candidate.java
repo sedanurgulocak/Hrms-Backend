@@ -49,4 +49,7 @@ public class Candidate extends User{
 	@OneToMany(mappedBy="candidate")
 	private List<SocialLink> socialLinks;
 	
+	@OneToMany(mappedBy="candidate")
+	private List<Skill> skills;
+	
 }
