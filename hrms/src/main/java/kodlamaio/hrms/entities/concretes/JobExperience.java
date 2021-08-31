@@ -37,6 +37,8 @@ public class JobExperience {
 	@Column(name="end_date")
 	private Date endDate;
 	
+	@Column(name="is_continue")
+	private boolean isContinue;
 	
 
 }
