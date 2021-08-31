@@ -3,7 +3,7 @@ package kodlamaio.hrms.core.verifications.concretes;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.core.verifications.abstracts.EmployeeConfirmService;
-import kodlamaio.hrms.entities.concretes.Employer;
+import kodlamaio.hrms.entities.concretes.users.Employer;
 
 @Service
 public class EmployeeConfirmManager implements EmployeeConfirmService  {

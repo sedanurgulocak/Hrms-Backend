@@ -11,7 +11,7 @@ import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.EmployeeDao;
-import kodlamaio.hrms.entities.concretes.Employee;
+import kodlamaio.hrms.entities.concretes.users.Employee;
 
 @Service
 public class EmployeeManager implements EmployeeService{
