@@ -33,8 +33,8 @@ public class Education {
 	@Column(name="degree")
 	private String degree;
 	
-	@Column(name="field_of_study")
-	private String fieldOfStudy;
+	@Column(name="school_department")
+	private String schoolDepartment;
 	
 	@Column(name="start_date")
 	private Date startDate;
