@@ -14,7 +14,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.core.verifications.abstracts.EmailVerificationService;
 import kodlamaio.hrms.core.verifications.abstracts.MernisVerificationService;
 import kodlamaio.hrms.dataAccess.abstracts.CandidateDao;
-import kodlamaio.hrms.entities.concretes.Candidate;
+import kodlamaio.hrms.entities.concretes.users.Candidate;
 
 @Service
 public class CandidateManager implements CandidateService {

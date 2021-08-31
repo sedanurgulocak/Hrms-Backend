@@ -8,7 +8,7 @@ import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.CompanyDao;
-import kodlamaio.hrms.entities.concretes.Company;
+import kodlamaio.hrms.entities.concretes.jobs.Company;
 
 @Service
 public class CompanyManager implements CompanyService{
