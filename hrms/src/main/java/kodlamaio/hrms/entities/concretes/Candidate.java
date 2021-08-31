@@ -10,6 +10,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import kodlamaio.hrms.entities.concretes.cvs.Education;
+import kodlamaio.hrms.entities.concretes.cvs.ForeignLanguage;
+import kodlamaio.hrms.entities.concretes.cvs.JobExperience;
+import kodlamaio.hrms.entities.concretes.cvs.Skill;
+import kodlamaio.hrms.entities.concretes.cvs.SocialLink;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
