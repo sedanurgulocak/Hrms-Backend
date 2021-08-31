@@ -14,7 +14,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.core.verifications.abstracts.EmailVerificationService;
 import kodlamaio.hrms.core.verifications.abstracts.EmployeeConfirmService;
 import kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
-import kodlamaio.hrms.entities.concretes.Employer;
+import kodlamaio.hrms.entities.concretes.users.Employer;
 
 @Service
 public class EmployerManager implements EmployerService{
