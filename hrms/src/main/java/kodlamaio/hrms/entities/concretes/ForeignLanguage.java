@@ -25,9 +25,6 @@ public class ForeignLanguage {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="candidate_id")
-	private int candidateId;
-	
 	@Column(name="language")
 	private String language;
 	
