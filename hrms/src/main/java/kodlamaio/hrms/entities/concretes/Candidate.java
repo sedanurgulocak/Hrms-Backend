@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name="candidates")
 @PrimaryKeyJoinColumn(name="user_id")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "educations"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "educations", "jobExperiences"})
 public class Candidate extends User{
 
 	@Column(name="first_name")
@@ -39,5 +39,8 @@ public class Candidate extends User{
 	
 	@OneToMany(mappedBy="candidate")
 	private List<Education> educations;
+	
+	@OneToMany(mappedBy="candidate")
+	private List<JobExperience> jobExperiences;
 	
 }
