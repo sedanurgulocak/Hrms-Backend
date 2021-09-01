@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import kodlamaio.hrms.entities.concretes.users.Candidate;
@@ -32,7 +32,7 @@ public class ForeignLanguage {
 	@Column(name="level")
 	private double level;
 	
-	@ManyToMany()
+	@ManyToOne()
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
 }
