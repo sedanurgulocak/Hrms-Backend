@@ -12,7 +12,7 @@ public class CloudinaryAdapter implements PhotoUploadService{
 	@Override
 	public void uploadToPhoto(String photoUrl) {
 		try {
-			FileReader fileReader = new FileReader("/hrms/src/main/resources/cloudinarySettings.properties");
+			FileReader fileReader = new FileReader("C:/Users/sedan/git/javaKampHrms/hrms/src/main/resources/cloudinarySettings.properties");
 			Properties properties = new Properties();
 			properties.load(fileReader);
 			
