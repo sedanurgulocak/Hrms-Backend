@@ -2,8 +2,6 @@ package kodlamaio.hrms.entities.concretes.dtos;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-
 import kodlamaio.hrms.entities.concretes.cvs.CoverLetter;
 import kodlamaio.hrms.entities.concretes.cvs.Education;
 import kodlamaio.hrms.entities.concretes.cvs.ForeignLanguage;
