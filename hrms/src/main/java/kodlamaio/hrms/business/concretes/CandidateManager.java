@@ -62,4 +62,11 @@ public class CandidateManager implements CandidateService {
 		return new SuccessResult("Aday eklendi");
 	}
 
+
+	@Override
+	public Candidate getById(int id) {
+		Candidate candidate = this.candidateDao.getById(id);
+		return candidate;
+	}
+
 }
