@@ -15,6 +15,7 @@ import kodlamaio.hrms.entities.concretes.cvs.CoverLetter;
 import kodlamaio.hrms.entities.concretes.cvs.Education;
 import kodlamaio.hrms.entities.concretes.cvs.ForeignLanguage;
 import kodlamaio.hrms.entities.concretes.cvs.JobExperience;
+import kodlamaio.hrms.entities.concretes.cvs.Photo;
 import kodlamaio.hrms.entities.concretes.cvs.Skill;
 import kodlamaio.hrms.entities.concretes.cvs.SocialLink;
 import lombok.AllArgsConstructor;
@@ -61,6 +62,9 @@ public class Candidate extends User{
 	
 	@OneToOne(mappedBy="candidate")
 	private CoverLetter coverLetter;
+	
+	@OneToOne(mappedBy="candidate")
+	private Photo photo;
 	
 	
 }
