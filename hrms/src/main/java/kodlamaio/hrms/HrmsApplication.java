@@ -22,13 +22,13 @@ public class HrmsApplication {
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(HrmsApplication.class, args);
 		
-		/*
-		 * Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap( "cloud_name",
-		 * "seda", "api_key", "612252143868788", "api_secret",
-		 * "6R4XYnlStKbbSIGz6GQq8DRWkqs", "secure", true)); File file = new
-		 * File("my_image.jpg"); Map uploadResult = cloudinary.uploader().upload(file,
-		 * ObjectUtils.emptyMap());
-		 */
+//		  Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap( 
+//				  "cloud_name",
+//				  "seda", "api_key", "612252143868788", "api_secret",
+//				  "6R4XYnlStKbbSIGz6GQq8DRWkqs", "secure", true)); 
+//		  File file = new File("my_image.jpg"); 
+//		  Map uploadResult = cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
+		 
 	}
 	
 	@Bean
