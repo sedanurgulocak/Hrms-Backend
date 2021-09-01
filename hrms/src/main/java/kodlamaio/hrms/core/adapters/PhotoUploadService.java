@@ -1,6 +1,6 @@
 package kodlamaio.hrms.core.adapters;
 
-public interface photoUploadService {
+public interface PhotoUploadService {
 
 	void uploadToPhoto(String photoUrl);
 }
