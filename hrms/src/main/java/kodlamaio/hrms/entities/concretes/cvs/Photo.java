@@ -5,8 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import kodlamaio.hrms.entities.concretes.users.Candidate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,9 +26,11 @@ public class Photo {
 	@Column(name="id")
 	private int id;
 	
-	private int candidateId;
-	
 	@Column(name="photo_url")
 	private String photoUrl;
+	
+	@OneToOne()
+	@JoinColumn(name="candidate_id")
+	private Candidate candidate;
 
 }
