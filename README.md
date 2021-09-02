@@ -12,7 +12,8 @@
 
 
 ### :floppy_disk: Entity Relationship Diagram (ERD)
-![ERD-8-2-2](https://user-images.githubusercontent.com/64933639/130371224-75332cc9-7dc8-468b-a9b9-6da394f2871d.png)
+![ERD-2-9](https://user-images.githubusercontent.com/64933639/131818990-9cce18ae-3257-45e8-a9fa-55a185caec60.png)
+
 
 
 
