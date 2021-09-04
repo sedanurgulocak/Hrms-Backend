@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import kodlamaio.hrms.entities.concretes.users.Candidate;
 import lombok.AllArgsConstructor;
@@ -38,9 +40,11 @@ public class Education {
 	private String schoolDepartment;
 	
 	@Column(name="start_date")
+	@Temporal(TemporalType.DATE)
 	private Date startDate;
 	
 	@Column(name="end_date")
+	@Temporal(TemporalType.DATE)
 	private Date endDate;
 	
 	@Column(name="is_graduated")
