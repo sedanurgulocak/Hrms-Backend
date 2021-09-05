@@ -10,7 +10,7 @@ public interface EducationService {
 	
 	Result add(Education education);
 	
-	DataResult<List<Education>> getListEducationByCandidateId(int candidateId);
+	List<Education> getListEducationByCandidateId(int candidateId);
 	
 	DataResult<List<Education>> sortEducation(int candidateId);
 
