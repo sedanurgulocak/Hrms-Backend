@@ -36,5 +36,11 @@ public class EducationsController {
 //	public DataResult<List<Education>> getListEducationByCandidateId(@RequestParam int candidateId){
 //		return this.educationService.getListEducationByCandidateId(candidateId);
 //	}
+	
+	@GetMapping(name="sortEducation")
+	public DataResult<List<Education>> sortEducation(@RequestParam int candidateId){
+		return this.educationService.sortEducation(candidateId);
+		
+	}
 
 }
