@@ -14,6 +14,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.core.verifications.abstracts.EmailVerificationService;
 import kodlamaio.hrms.core.verifications.abstracts.MernisVerificationService;
 import kodlamaio.hrms.dataAccess.abstracts.CandidateDao;
+import kodlamaio.hrms.entities.concretes.dtos.CandidateDto;
 import kodlamaio.hrms.entities.concretes.users.Candidate;
 
 @Service
@@ -41,20 +42,31 @@ public class CandidateManager implements CandidateService {
 
 
 	@Override
-	public Result add(Candidate candidate) {
-		if(candidate.getEmail() == null || candidate.getPassword() == null || candidate.getPasswordAgain() == null || 
-				candidate.getType() == null || candidate.getFirstName() == null || candidate.getLastName() == null ||
-				candidate.getNationalIdentity() == null || candidate.getDateOfBirth() == null ) {
+	public Result add(CandidateDto candidateDto) {
+		Candidate candidate = new Candidate();
+		candidate.setFirstName(candidateDto.firstName);
+		candidate.setLastName(candidateDto.lastName);
+		candidate.setNationalIdentity(candidateDto.nationalIdentity);
+		candidate.setDateOfBirth(candidateDto.dateOfBirth);
+		candidate.setEmail(candidateDto.email);
+		candidate.setPassword(candidateDto.password);
+		candidate.setPasswordAgain(candidateDto.passwordAgain);
+		candidate.setType(candidateDto.type);
+		
+		if(candidateDto.email == null || candidateDto.password == null || candidateDto.passwordAgain == null || 
+				candidateDto.type == null || candidateDto.firstName == null || candidateDto.lastName == null ||
+				candidateDto.nationalIdentity == null || candidateDto.dateOfBirth == null ) {
 			return new ErrorResult("Tüm alanlar zorunlu");
-		}else if(!candidate.getPassword().equals(candidate.getPasswordAgain())) {
+		}else if(!candidateDto.password.equals(candidateDto.passwordAgain)) {
 			return new ErrorResult("Şifre ve şifre tekrarı eşit değil");
-		}else if(!this.emailVerificationService.isVerifed(candidate.getEmail())) {
+		}else if(!this.emailVerificationService.isVerifed(candidateDto.email)) {
 			return new ErrorResult("Email onaylanmadı");
-		}else if(!this.mernisVerificationService.checkIfRealPerson(candidate)){
-			return new ErrorResult("Kullanıcı mernisten onaylanmadı");
-		}else if(this.candidateDao.existsCandidateByEmail(candidate.getEmail())) {
+		}//else if(!this.mernisVerificationService.checkIfRealPerson(candidateDto)){
+			//return new ErrorResult("Kullanıcı mernisten onaylanmadı");
+		//}
+		else if(this.candidateDao.existsCandidateByEmail(candidateDto.email)) {
 			return new ErrorResult("Email zaten kayıtlı");
-		}else if(this.candidateDao.existsCandidateByNationalIdentity(candidate.getNationalIdentity())){
+		}else if(this.candidateDao.existsCandidateByNationalIdentity(candidateDto.nationalIdentity)){
 			return new ErrorResult("Tc kimlik no zaten kayıtlı");
 		}
 		
