@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hrms.business.abstracts.CandidateService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.entities.concretes.dtos.CandidateDto;
 import kodlamaio.hrms.entities.concretes.users.Candidate;
 
 @RestController
@@ -32,7 +33,7 @@ public class CandidatesController {
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Candidate candidate) {
-		return this.candidateService.add(candidate);
+	public Result add(@RequestBody CandidateDto candidateDto) {
+		return this.candidateService.add(candidateDto);
 	}
 }
