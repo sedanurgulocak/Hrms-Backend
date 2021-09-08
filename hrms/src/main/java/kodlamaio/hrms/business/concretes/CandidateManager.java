@@ -43,15 +43,6 @@ public class CandidateManager implements CandidateService {
 
 	@Override
 	public Result add(CandidateDto candidateDto) {
-		Candidate candidate = new Candidate();
-		candidate.setFirstName(candidateDto.firstName);
-		candidate.setLastName(candidateDto.lastName);
-		candidate.setNationalIdentity(candidateDto.nationalIdentity);
-		candidate.setDateOfBirth(candidateDto.dateOfBirth);
-		candidate.setEmail(candidateDto.email);
-		candidate.setPassword(candidateDto.password);
-		candidate.setPasswordAgain(candidateDto.passwordAgain);
-		candidate.setType(candidateDto.type);
 		
 		if(candidateDto.email == null || candidateDto.password == null || candidateDto.passwordAgain == null || 
 				candidateDto.type == null || candidateDto.firstName == null || candidateDto.lastName == null ||
@@ -69,6 +60,16 @@ public class CandidateManager implements CandidateService {
 		}else if(this.candidateDao.existsCandidateByNationalIdentity(candidateDto.nationalIdentity)){
 			return new ErrorResult("Tc kimlik no zaten kayıtlı");
 		}
+		
+		Candidate candidate = new Candidate();
+		candidate.setFirstName(candidateDto.firstName);
+		candidate.setLastName(candidateDto.lastName);
+		candidate.setNationalIdentity(candidateDto.nationalIdentity);
+		candidate.setDateOfBirth(candidateDto.dateOfBirth);
+		candidate.setEmail(candidateDto.email);
+		candidate.setPassword(candidateDto.password);
+		candidate.setPasswordAgain(candidateDto.passwordAgain);
+		candidate.setType(candidateDto.type);
 		
 		this.candidateDao.save(candidate);
 		return new SuccessResult("Aday eklendi");
