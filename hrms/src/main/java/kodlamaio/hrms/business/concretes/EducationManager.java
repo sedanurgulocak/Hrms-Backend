@@ -14,6 +14,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.EducationDao;
 import kodlamaio.hrms.entities.concretes.cvs.Education;
+import kodlamaio.hrms.entities.concretes.dtos.EducationDto;
 
 @Service
 public class EducationManager implements EducationService{
@@ -27,8 +28,8 @@ public class EducationManager implements EducationService{
 	}
 
 	@Override
-	public Result add(Education education) {
-		this.educationDao.save(education);
+	public Result add(EducationDto educationDto) {
+		this.educationDao.save(educationDto);
 		return new SuccessResult("Eğitim bilgisi eklendi");
 	}
 
