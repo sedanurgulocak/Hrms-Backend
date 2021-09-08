@@ -5,10 +5,11 @@ import java.util.List;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.cvs.Education;
+import kodlamaio.hrms.entities.concretes.dtos.EducationDto;
 
 public interface EducationService {
 	
-	Result add(Education education);
+	Result add(EducationDto educationDto);
 	
 	List<Education> getListEducationByCandidateId(int candidateId);
 	
