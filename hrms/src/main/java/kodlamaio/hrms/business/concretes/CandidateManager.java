@@ -61,9 +61,9 @@ public class CandidateManager implements CandidateService {
 			return new ErrorResult("Şifre ve şifre tekrarı eşit değil");
 		}else if(!this.emailVerificationService.isVerifed(candidateDto.email)) {
 			return new ErrorResult("Email onaylanmadı");
-		}//else if(!this.mernisVerificationService.checkIfRealPerson(candidateDto)){
-			//return new ErrorResult("Kullanıcı mernisten onaylanmadı");
-		//}
+		}else if(!this.mernisVerificationService.checkIfRealPerson(candidateDto)){
+			return new ErrorResult("Kullanıcı mernisten onaylanmadı");
+		}
 		else if(this.candidateDao.existsCandidateByEmail(candidateDto.email)) {
 			return new ErrorResult("Email zaten kayıtlı");
 		}else if(this.candidateDao.existsCandidateByNationalIdentity(candidateDto.nationalIdentity)){
