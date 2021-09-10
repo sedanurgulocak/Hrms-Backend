@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.CandidateService;
+import kodlamaio.hrms.core.utilities.modelMapper.DtoConverterService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
@@ -33,11 +34,14 @@ public class CandidateManager implements CandidateService {
 	
 	@Autowired(required=false)
 	private MernisVerificationService mernisVerificationService;
+	
+	@Autowired
+	private DtoConverterService dtoConverterService;
 
 
 	@Override
-	public DataResult<List<Candidate>> getAll() {
-		return new SuccessDataResult<List<Candidate>>(this.candidateDao.findAll(), "Adaylar listelendi");
+	public DataResult<List<CandidateDto>> getAll() {
+		return new SuccessDataResult<List<CandidateDto>>(this.dtoConverterService.entityToDto(this.candidateDao.findAll(), CandidateDto.class), "Adaylar listelendi");
 	}
 
 
@@ -61,16 +65,7 @@ public class CandidateManager implements CandidateService {
 			return new ErrorResult("Tc kimlik no zaten kayıtlı");
 		}
 		
-		Candidate candidate = new Candidate();
-		candidate.setFirstName(candidateDto.firstName);
-		candidate.setLastName(candidateDto.lastName);
-		candidate.setNationalIdentity(candidateDto.nationalIdentity);
-		candidate.setDateOfBirth(candidateDto.dateOfBirth);
-		candidate.setEmail(candidateDto.email);
-		candidate.setPassword(candidateDto.password);
-		candidate.setPasswordAgain(candidateDto.passwordAgain);
-		candidate.setType(candidateDto.type);
-		
+		Candidate candidate = (Candidate) dtoConverterService.dtoToEntity(candidateDto, Candidate.class);
 		this.candidateDao.save(candidate);
 		return new SuccessResult("Aday eklendi");
 	}
