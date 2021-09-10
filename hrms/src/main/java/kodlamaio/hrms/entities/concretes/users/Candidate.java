@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import kodlamaio.hrms.entities.abstracts.User;
 import kodlamaio.hrms.entities.concretes.cvs.CoverLetter;
 import kodlamaio.hrms.entities.concretes.cvs.Education;
 import kodlamaio.hrms.entities.concretes.cvs.ForeignLanguage;
