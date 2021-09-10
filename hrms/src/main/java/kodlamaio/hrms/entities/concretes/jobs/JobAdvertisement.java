@@ -40,11 +40,11 @@ public class JobAdvertisement {
 	private boolean status;
 	
 	@Column(name="create_date")
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	private Date createDate;
 	
 	@Column(name="end_date")
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	private Date endDate;
 	
 	@Column(name="salary_min")
