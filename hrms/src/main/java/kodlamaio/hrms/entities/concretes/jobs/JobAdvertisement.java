@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import kodlamaio.hrms.entities.concretes.users.Employer;
 import lombok.AllArgsConstructor;
@@ -40,11 +38,11 @@ public class JobAdvertisement {
 	private boolean status;
 	
 	@Column(name="create_date")
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	private Date createDate;
 	
 	@Column(name="end_date")
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
 	private Date endDate;
 	
 	@Column(name="salary_min")

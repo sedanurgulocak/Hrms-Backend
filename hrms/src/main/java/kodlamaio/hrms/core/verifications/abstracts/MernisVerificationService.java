@@ -1,8 +1,8 @@
 package kodlamaio.hrms.core.verifications.abstracts;
 
-import kodlamaio.hrms.entities.concretes.users.Candidate;
+import kodlamaio.hrms.entities.concretes.dtos.CandidateDto;
 
 public interface MernisVerificationService {
 
-	boolean checkIfRealPerson(Candidate candidate);
+	boolean checkIfRealPerson(CandidateDto candidateDto);
 }
