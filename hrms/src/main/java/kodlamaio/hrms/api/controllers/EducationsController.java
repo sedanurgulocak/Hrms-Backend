@@ -33,15 +33,14 @@ public class EducationsController {
 		return this.educationService.add(educationDto);
 	}
 	
-//	@GetMapping(name="/getListEducationByCandidateId")
-//	public DataResult<List<Education>> getListEducationByCandidateId(@RequestParam int candidateId){
-//		return this.educationService.getListEducationByCandidateId(candidateId);
-//	}
+	@GetMapping(name="/getListEducationByCandidateId")
+	public DataResult<List<Education>> getListEducationByCandidateId2(@RequestParam int candidateId){
+		return this.educationService.getListEducationByCandidateId(candidateId);
+	}
 	
-	@GetMapping(name="sortEducation")
-	public DataResult<List<Education>> sortEducation(@RequestParam int candidateId){
-		return this.educationService.sortEducation(candidateId);
-		
+	@GetMapping("/findAllByCandidateIdOrderByEndDateDesc")
+	DataResult<List<Education>> findAllByCandidateIdOrderByEndDateDesc(int candidateId){
+		return this.educationService.findAllByCandidateIdOrderByEndDateDesc(candidateId);
 	}
 
 }
