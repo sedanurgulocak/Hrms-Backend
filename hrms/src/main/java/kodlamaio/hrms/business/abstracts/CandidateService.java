@@ -9,7 +9,7 @@ import kodlamaio.hrms.entities.concretes.users.Candidate;
 
 public interface CandidateService {
 
-	DataResult<List<Candidate>> getAll();
+	DataResult<List<CandidateDto>> getAll();
 	
 	Result add(CandidateDto candidateDto);
 	
