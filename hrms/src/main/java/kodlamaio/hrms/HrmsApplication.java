@@ -4,6 +4,7 @@ package kodlamaio.hrms;
 import java.io.IOException;
 //import java.util.Map;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -38,5 +39,10 @@ public class HrmsApplication {
           .apis(RequestHandlerSelectors.basePackage("kodlamaio.hrms"))                      
           .build();                                           
     }
+	
+	@Bean
+	public ModelMapper modelMapper() {
+	    return new ModelMapper();
+	}
 
 }

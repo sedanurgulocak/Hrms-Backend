@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.CandidateService;
+import kodlamaio.hrms.core.utilities.modelMapper.DtoConverterService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
@@ -14,6 +15,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.core.verifications.abstracts.EmailVerificationService;
 import kodlamaio.hrms.core.verifications.abstracts.MernisVerificationService;
 import kodlamaio.hrms.dataAccess.abstracts.CandidateDao;
+import kodlamaio.hrms.entities.concretes.dtos.CandidateDto;
 import kodlamaio.hrms.entities.concretes.users.Candidate;
 
 @Service
@@ -32,32 +34,38 @@ public class CandidateManager implements CandidateService {
 	
 	@Autowired(required=false)
 	private MernisVerificationService mernisVerificationService;
+	
+	@Autowired
+	private DtoConverterService dtoConverterService;
 
 
 	@Override
-	public DataResult<List<Candidate>> getAll() {
-		return new SuccessDataResult<List<Candidate>>(this.candidateDao.findAll(), "Adaylar listelendi");
+	public DataResult<List<CandidateDto>> getAll() {
+		return new SuccessDataResult<List<CandidateDto>>(this.dtoConverterService.entityToDto(this.candidateDao.findAll(), CandidateDto.class), "Adaylar listelendi");
 	}
 
 
 	@Override
-	public Result add(Candidate candidate) {
-		if(candidate.getEmail() == null || candidate.getPassword() == null || candidate.getPasswordAgain() == null || 
-				candidate.getType() == null || candidate.getFirstName() == null || candidate.getLastName() == null ||
-				candidate.getNationalIdentity() == null || candidate.getDateOfBirth() == null ) {
+	public Result add(CandidateDto candidateDto) {
+		
+		if(candidateDto.email == null || candidateDto.password == null || candidateDto.passwordAgain == null || 
+				candidateDto.type == null || candidateDto.firstName == null || candidateDto.lastName == null ||
+				candidateDto.nationalIdentity == null || candidateDto.dateOfBirth == null ) {
 			return new ErrorResult("Tüm alanlar zorunlu");
-		}else if(!candidate.getPassword().equals(candidate.getPasswordAgain())) {
+		}else if(!candidateDto.password.equals(candidateDto.passwordAgain)) {
 			return new ErrorResult("Şifre ve şifre tekrarı eşit değil");
-		}else if(!this.emailVerificationService.isVerifed(candidate.getEmail())) {
+		}else if(!this.emailVerificationService.isVerifed(candidateDto.email)) {
 			return new ErrorResult("Email onaylanmadı");
-		}else if(!this.mernisVerificationService.checkIfRealPerson(candidate)){
+		}else if(!this.mernisVerificationService.checkIfRealPerson(candidateDto)){
 			return new ErrorResult("Kullanıcı mernisten onaylanmadı");
-		}else if(this.candidateDao.existsCandidateByEmail(candidate.getEmail())) {
+		}
+		else if(this.candidateDao.existsCandidateByEmail(candidateDto.email)) {
 			return new ErrorResult("Email zaten kayıtlı");
-		}else if(this.candidateDao.existsCandidateByNationalIdentity(candidate.getNationalIdentity())){
+		}else if(this.candidateDao.existsCandidateByNationalIdentity(candidateDto.nationalIdentity)){
 			return new ErrorResult("Tc kimlik no zaten kayıtlı");
 		}
 		
+		Candidate candidate = (Candidate) dtoConverterService.dtoToEntity(candidateDto, Candidate.class);
 		this.candidateDao.save(candidate);
 		return new SuccessResult("Aday eklendi");
 	}
