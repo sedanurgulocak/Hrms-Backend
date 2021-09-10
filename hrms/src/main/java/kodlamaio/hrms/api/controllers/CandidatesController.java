@@ -13,7 +13,6 @@ import kodlamaio.hrms.business.abstracts.CandidateService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.dtos.CandidateDto;
-import kodlamaio.hrms.entities.concretes.users.Candidate;
 
 @RestController
 @RequestMapping("/api/candidates")
@@ -28,7 +27,7 @@ public class CandidatesController {
 	}
 	
 	@GetMapping("/getAll")
-	public DataResult<List<Candidate>> getAll(){
+	public DataResult<List<CandidateDto>> getAll(){
 		return this.candidateService.getAll();
 	}
 	
