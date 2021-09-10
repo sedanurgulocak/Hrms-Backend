@@ -11,8 +11,8 @@ public interface EducationService {
 	
 	Result add(EducationDto educationDto);
 	
-	List<Education> getListEducationByCandidateId(int candidateId);
+	DataResult<List<Education>> getListEducationByCandidateId(int candidateId);
 	
-	DataResult<List<Education>> sortEducation(int candidateId);
+	DataResult<List<Education>> findAllByCandidateIdOrderByEndDateDesc(int candidateId);
 
 }
