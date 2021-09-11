@@ -5,20 +5,20 @@ import lombok.Data;
 @Data
 public class CandidateDto {
 	
-	public String firstName;
+	private String firstName;
 	
-	public String lastName;
+	private String lastName;
 	
-	public String email;
+	private String email;
 	
-	public String password;
+	private String password;
 	
-	public String passwordAgain;
+	private String passwordAgain;
 	
-	public String type;
+	private String type;
 	
-	public String nationalIdentity;
+	private String nationalIdentity;
 	
-	public String dateOfBirth;
+	private String dateOfBirth;
 
 }
