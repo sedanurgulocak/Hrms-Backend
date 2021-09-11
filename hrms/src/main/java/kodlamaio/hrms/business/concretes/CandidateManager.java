@@ -48,20 +48,20 @@ public class CandidateManager implements CandidateService {
 	@Override
 	public Result add(CandidateDto candidateDto) {
 		
-		if(candidateDto.email == null || candidateDto.password == null || candidateDto.passwordAgain == null || 
-				candidateDto.type == null || candidateDto.firstName == null || candidateDto.lastName == null ||
-				candidateDto.nationalIdentity == null || candidateDto.dateOfBirth == null ) {
+		if(candidateDto.getEmail() == null || candidateDto.getPassword() == null || candidateDto.getPasswordAgain() == null || 
+				candidateDto.getType() == null || candidateDto.getFirstName() == null || candidateDto.getLastName() == null ||
+				candidateDto.getNationalIdentity() == null || candidateDto.getDateOfBirth() == null ) {
 			return new ErrorResult("Tüm alanlar zorunlu");
-		}else if(!candidateDto.password.equals(candidateDto.passwordAgain)) {
+		}else if(!candidateDto.getPassword().equals(candidateDto.getPasswordAgain())) {
 			return new ErrorResult("Şifre ve şifre tekrarı eşit değil");
-		}else if(!this.emailVerificationService.isVerifed(candidateDto.email)) {
+		}else if(!this.emailVerificationService.isVerifed(candidateDto.getEmail())) {
 			return new ErrorResult("Email onaylanmadı");
 		}else if(!this.mernisVerificationService.checkIfRealPerson(candidateDto)){
 			return new ErrorResult("Kullanıcı mernisten onaylanmadı");
 		}
-		else if(this.candidateDao.existsCandidateByEmail(candidateDto.email)) {
+		else if(this.candidateDao.existsCandidateByEmail(candidateDto.getEmail())) {
 			return new ErrorResult("Email zaten kayıtlı");
-		}else if(this.candidateDao.existsCandidateByNationalIdentity(candidateDto.nationalIdentity)){
+		}else if(this.candidateDao.existsCandidateByNationalIdentity(candidateDto.getNationalIdentity())){
 			return new ErrorResult("Tc kimlik no zaten kayıtlı");
 		}
 		
