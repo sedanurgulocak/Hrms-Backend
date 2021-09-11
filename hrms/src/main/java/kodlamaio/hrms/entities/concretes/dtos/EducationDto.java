@@ -7,20 +7,20 @@ import lombok.Data;
 @Data
 public class EducationDto {
 	
-	public int candidateId;
+	private int candidateId;
 	
-	public String schoolName;
+	private String schoolName;
 	
-	public String degree;
+	private String degree;
 	
-	public String schoolDepartment;
+	private String schoolDepartment;
 	
-	public Date startDate;
+	private Date startDate;
 	
-	public Date endDate;
+	private Date endDate;
 	
-	public boolean isGraduated;
+	private boolean isGraduated;
 	
-	public double grade;
+	private double grade;
 
 }
