@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.CoverLetterService;
 import kodlamaio.hrms.core.utilities.modelMapper.DtoConverterService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.CoverLetterDao;
 import kodlamaio.hrms.entities.concretes.cvs.CoverLetter;
@@ -40,6 +42,13 @@ public class CoverLetterManager implements CoverLetterService{
 		coverLetter.setText(text);
 		this.coverLetterDao.save(coverLetter);
 		return new SuccessResult("Ön yazı güncellendi");
+	}
+
+
+	@Override
+	public DataResult<CoverLetter> deleteById(int id) {
+		
+		return new SuccessDataResult<CoverLetter>(this.coverLetterDao.deleteById(id), "On yazi silindi");
 	}
 
 }
