@@ -39,7 +39,7 @@ public class EducationsController {
 	}
 	
 	@GetMapping("/findAllByCandidateIdOrderByEndDateDesc")
-	DataResult<List<Education>> findAllByCandidateIdOrderByEndDateDesc(int candidateId){
+	DataResult<List<Education>> findAllByCandidateIdOrderByEndDateDesc(@RequestParam int candidateId){
 		return this.educationService.findAllByCandidateIdOrderByEndDateDesc(candidateId);
 	}
 
