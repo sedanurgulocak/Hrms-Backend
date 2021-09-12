@@ -7,5 +7,7 @@ import kodlamaio.hrms.entities.concretes.cvs.CoverLetter;
 public interface CoverLetterDao extends JpaRepository<CoverLetter, Integer>{
 	
 	CoverLetter getByCandidateId (int candidateId);
+	
+	CoverLetter deleteById(int id);
 
 }
