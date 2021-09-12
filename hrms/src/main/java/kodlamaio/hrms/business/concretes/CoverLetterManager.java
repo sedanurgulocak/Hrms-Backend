@@ -33,4 +33,13 @@ public class CoverLetterManager implements CoverLetterService{
 		return new SuccessResult("Ön yazı eklendi");
 	}
 
+
+	@Override
+	public Result update(int candidateId, String text) {
+		CoverLetter coverLetter = this.coverLetterDao.getByCandidateId(candidateId);
+		coverLetter.setText(text);
+		this.coverLetterDao.save(coverLetter);
+		return new SuccessResult("Ön yazı güncellendi");
+	}
+
 }
