@@ -46,9 +46,10 @@ public class CoverLetterManager implements CoverLetterService{
 
 
 	@Override
-	public DataResult<CoverLetter> deleteById(int id) {
-		
-		return new SuccessDataResult<CoverLetter>(this.coverLetterDao.deleteById(id), "On yazi silindi");
+	public DataResult<CoverLetterDto> deleteById(int id) {
+		CoverLetter coverLetter = this.coverLetterDao.deleteById(id);
+		CoverLetterDto coverLetterDto = (CoverLetterDto) this.dtoConverterService.dtoToEntity(coverLetter, CoverLetter.class);
+		return new SuccessDataResult<CoverLetterDto>(coverLetterDto, "On yazi silindi");
 	}
 
 }

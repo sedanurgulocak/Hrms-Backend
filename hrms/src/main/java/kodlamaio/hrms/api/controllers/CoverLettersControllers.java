@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hrms.business.abstracts.CoverLetterService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.cvs.CoverLetter;
 import kodlamaio.hrms.entities.concretes.dtos.CoverLetterDto;
 
 @RestController
@@ -41,7 +40,7 @@ public class CoverLettersControllers {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public DataResult<CoverLetter> delete(@PathVariable("id") int id){
+	public DataResult<CoverLetterDto> delete(@PathVariable("id") int id){
 		
 		return this.coverLetterService.deleteById(id);
 	}
