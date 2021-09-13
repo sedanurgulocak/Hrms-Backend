@@ -42,8 +42,16 @@ public class SocialLinkManager implements SocialLinkService{
 		socialLink.setGithubLink(githubLink);
 		socialLink.setLinledinLink(linkedinLink);
 		this.socialLinkDao.save(socialLink);
-		SocialLinkDto socialLinkDto =(SocialLinkDto) this.dtoConverterService.dtoToEntity(socialLink, SocialLinkDto.class);
+		SocialLinkDto socialLinkDto = (SocialLinkDto) this.dtoConverterService.dtoToEntity(socialLink, SocialLinkDto.class);
 		return new SuccessDataResult<SocialLinkDto>(socialLinkDto, "Sosyal hesaplar güncellendi");
+	}
+
+
+	@Override
+	public DataResult<SocialLinkDto> deleteById(int id) {
+		SocialLink socialLink = this.socialLinkDao.deleteById(id);
+		SocialLinkDto socialLinkDto = (SocialLinkDto) this.dtoConverterService.dtoToEntity(socialLink, SocialLinkDto.class);
+		return new SuccessDataResult<SocialLinkDto>(socialLinkDto, "Sosyal linkler silindi");
 	}
 
 }
