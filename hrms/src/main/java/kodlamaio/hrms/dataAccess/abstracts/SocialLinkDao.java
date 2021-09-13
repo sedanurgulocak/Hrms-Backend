@@ -7,4 +7,6 @@ import kodlamaio.hrms.entities.concretes.cvs.SocialLink;
 public interface SocialLinkDao extends JpaRepository<SocialLink, Integer>{
 
 	SocialLink getByCandidateId(int candidateId);
+	
+	SocialLink deleteById(int id);
 }
