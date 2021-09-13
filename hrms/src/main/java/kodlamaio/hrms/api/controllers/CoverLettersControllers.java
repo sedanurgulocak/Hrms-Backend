@@ -41,7 +41,7 @@ public class CoverLettersControllers {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public DataResult<CoverLetter> delete(@PathVariable("id") int id){
+	public DataResult<CoverLetterDto> delete(@PathVariable("id") int id){
 		
 		return this.coverLetterService.deleteById(id);
 	}
