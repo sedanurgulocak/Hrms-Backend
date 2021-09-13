@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hrms.business.abstracts.CoverLetterService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.cvs.CoverLetter;
 import kodlamaio.hrms.entities.concretes.dtos.CoverLetterDto;
 
 @RestController
