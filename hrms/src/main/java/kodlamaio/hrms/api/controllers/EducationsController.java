@@ -34,7 +34,7 @@ public class EducationsController {
 	}
 	
 	@GetMapping(name="/getListEducationByCandidateId")
-	public DataResult<List<Education>> getListEducationByCandidateId2(@RequestParam int candidateId){
+	public DataResult<List<Education>> getListEducationByCandidateId(@RequestParam int candidateId){
 		return this.educationService.getListEducationByCandidateId(candidateId);
 	}
 	
