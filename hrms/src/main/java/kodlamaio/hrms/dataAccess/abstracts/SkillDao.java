@@ -7,5 +7,6 @@ import kodlamaio.hrms.entities.concretes.cvs.Skill;
 
 public interface SkillDao extends JpaRepository<Skill, Integer>{
 	
+	Skill deleteById(int id);
 
 }
