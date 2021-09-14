@@ -1,5 +1,7 @@
 package kodlamaio.hrms.business.concretes;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +42,11 @@ public class SkillManager implements SkillService{
 		Skill skill = this.skillDao.deleteById(id);
 		SkillDto skillDto = (SkillDto) this.dtoConverterService.dtoToEntity(skill, SkillDto.class);
 		return new SuccessDataResult<SkillDto>(skillDto, "Yetenek silindi");
+	}
+
+	@Override
+	public DataResult<List<SkillDto>> getSkillListByCandidateId(int candidateId) {
+		return new SuccessDataResult<List<SkillDto>>(this.dtoConverterService.entityToDto(this.skillDao.getSkillListByCandidateId(candidateId), SkillDto.class), "Yetenekler listelendi");
 	}
 
 }
