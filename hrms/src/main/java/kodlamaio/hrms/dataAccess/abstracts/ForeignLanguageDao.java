@@ -6,4 +6,6 @@ import kodlamaio.hrms.entities.concretes.cvs.ForeignLanguage;
 
 public interface ForeignLanguageDao extends JpaRepository<ForeignLanguage, Integer>{
 
+	ForeignLanguage deleteById(int id);
+	
 }
