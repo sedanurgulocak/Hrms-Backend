@@ -37,10 +37,9 @@ public class ForeignLanguageManager implements ForeignLanguageService{
 	}
 
 	@Override
-	public DataResult<ForeignLanguageDto> deleteById(int id) {
-		ForeignLanguage foreignLanguage = this.foreignLanguageDao.deleteById(id);
-		ForeignLanguageDto foreigLanguageDto = (ForeignLanguageDto) this.dtoConverterService.dtoToEntity(foreignLanguage, ForeignLanguageDto.class);
-		return new SuccessDataResult<ForeignLanguageDto>(foreigLanguageDto, "Yabancı dil silindi");
+	public Result deleteById(int id) {
+		this.foreignLanguageDao.deleteById(id);
+		return new SuccessResult("Yabancı dil silindi");
 	}
 
 	@Override
