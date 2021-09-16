@@ -5,9 +5,7 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.CoverLetterService;
 import kodlamaio.hrms.core.utilities.modelMapper.DtoConverterService;
-import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.CoverLetterDao;
 import kodlamaio.hrms.entities.concretes.cvs.CoverLetter;
@@ -46,10 +44,9 @@ public class CoverLetterManager implements CoverLetterService{
 
 
 	@Override
-	public DataResult<CoverLetterDto> deleteById(int id) {
-		CoverLetter coverLetter = this.coverLetterDao.deleteById(id);
-		CoverLetterDto coverLetterDto = (CoverLetterDto) this.dtoConverterService.dtoToEntity(coverLetter, CoverLetter.class);
-		return new SuccessDataResult<CoverLetterDto>(coverLetterDto, "On yazi silindi");
+	public Result deleteById(int id) {
+		this.coverLetterDao.deleteById(id);
+		return new SuccessResult("On yazi silindi");
 	}
 
 }

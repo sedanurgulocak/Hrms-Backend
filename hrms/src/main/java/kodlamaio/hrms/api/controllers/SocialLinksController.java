@@ -41,7 +41,7 @@ public class SocialLinksController {
 	
 	
 	@DeleteMapping("/delete/{id}")
-	public DataResult<SocialLinkDto> deleteById(@PathVariable("id") int id){
+	public Result deleteById(@PathVariable("id") int id){
 		
 		return this.socialLinkService.deleteById(id);
 	}

@@ -48,10 +48,9 @@ public class SocialLinkManager implements SocialLinkService{
 
 
 	@Override
-	public DataResult<SocialLinkDto> deleteById(int id) {
-		SocialLink socialLink = this.socialLinkDao.deleteById(id);
-		SocialLinkDto socialLinkDto = (SocialLinkDto) this.dtoConverterService.dtoToEntity(socialLink, SocialLinkDto.class);
-		return new SuccessDataResult<SocialLinkDto>(socialLinkDto, "Sosyal linkler silindi");
+	public Result deleteById(int id) {
+		this.socialLinkDao.deleteById(id);
+		return new SuccessResult("Sosyal linkler silindi");
 	}
 
 }
