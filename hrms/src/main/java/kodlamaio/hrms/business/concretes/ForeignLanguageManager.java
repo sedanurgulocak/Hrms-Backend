@@ -1,5 +1,7 @@
 package kodlamaio.hrms.business.concretes;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +41,12 @@ public class ForeignLanguageManager implements ForeignLanguageService{
 		ForeignLanguage foreignLanguage = this.foreignLanguageDao.deleteById(id);
 		ForeignLanguageDto foreigLanguageDto = (ForeignLanguageDto) this.dtoConverterService.dtoToEntity(foreignLanguage, ForeignLanguageDto.class);
 		return new SuccessDataResult<ForeignLanguageDto>(foreigLanguageDto, "Yabancı dil silindi");
+	}
+
+	@Override
+	public DataResult<List<ForeignLanguageDto>> getForeignLanguageListByCandidateId(int candidateId) {
+		
+		return new SuccessDataResult<List<ForeignLanguageDto>>(this.dtoConverterService.entityToDto(this.foreignLanguageDao.getForeignLanguageListByCandidateId(candidateId), ForeignLanguageDto.class), "Yabancı diller listelendi");
 	}
 
 }
