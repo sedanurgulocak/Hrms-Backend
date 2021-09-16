@@ -10,7 +10,7 @@ public interface ForeignLanguageService {
 	
 	Result add(ForeignLanguageDto foreignLanguageDto);
 
-	DataResult<ForeignLanguageDto> deleteById(int id);
+	Result deleteById(int id);
 	
 	DataResult<List<ForeignLanguageDto>> getForeignLanguageListByCandidateId(int candidateId);
 }
