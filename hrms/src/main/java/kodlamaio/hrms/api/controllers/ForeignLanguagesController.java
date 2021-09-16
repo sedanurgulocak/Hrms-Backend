@@ -35,7 +35,7 @@ public class ForeignLanguagesController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public DataResult<ForeignLanguageDto> deleteById(@PathVariable("id") int id){
+	public Result deleteById(@PathVariable("id") int id){
 		
 		return this.foreignLanguageService.deleteById(id);
 	}
