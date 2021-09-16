@@ -36,7 +36,7 @@ public class SkillsController {
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public DataResult<SkillDto> deleteById(@PathVariable("id") int id){
+	public Result deleteById(@PathVariable("id") int id){
 		
 		return this.skillService.deleteById(id);
 	}
