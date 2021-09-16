@@ -30,7 +30,7 @@ public class ForeignLanguage {
 	private String language;
 	
 	@Column(name="level")
-	private double level;
+	private int level;
 	
 	@ManyToOne()
 	@JoinColumn(name="candidate_id")

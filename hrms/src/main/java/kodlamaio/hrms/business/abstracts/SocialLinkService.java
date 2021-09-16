@@ -10,6 +10,6 @@ public interface SocialLinkService {
 	
 	DataResult<SocialLinkDto> update(int candidateId, String githubLink, String linkedinLink);
 	
-	DataResult<SocialLinkDto> deleteById(int id);
+	Result deleteById(int id);
 
 }
