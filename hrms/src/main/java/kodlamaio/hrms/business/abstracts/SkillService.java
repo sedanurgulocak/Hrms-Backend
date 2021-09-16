@@ -11,7 +11,7 @@ public interface SkillService {
 	
 	Result add(SkillDto skillDto);
 
-	DataResult<SkillDto> deleteById(int id);
+	Result deleteById(int id);
 	
 	DataResult<List<SkillDto>> getSkillListByCandidateId(int candidateId);
 }
