@@ -38,10 +38,9 @@ public class SkillManager implements SkillService{
 	}
 
 	@Override
-	public DataResult<SkillDto> deleteById(int id) {
-		Skill skill = this.skillDao.deleteById(id);
-		SkillDto skillDto = (SkillDto) this.dtoConverterService.dtoToEntity(skill, SkillDto.class);
-		return new SuccessDataResult<SkillDto>(skillDto, "Yetenek silindi");
+	public Result deleteById(int id) {
+		this.skillDao.deleteById(id);
+		return new SuccessResult("Yetenek silindi");
 	}
 
 	@Override
