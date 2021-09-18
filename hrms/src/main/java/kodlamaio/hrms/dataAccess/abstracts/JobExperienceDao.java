@@ -9,4 +9,6 @@ import kodlamaio.hrms.entities.concretes.cvs.JobExperience;
 public interface JobExperienceDao extends JpaRepository<JobExperience, Integer>{
 
 	List<JobExperience> getJobExperienceListByCandidateId(int candidateId);
+	
+	List<JobExperience> findAllByCandidateIdOrderByEndDateDesc(int candidateId);
 }
