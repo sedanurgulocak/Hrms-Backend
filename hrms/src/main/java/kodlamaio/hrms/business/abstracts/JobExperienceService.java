@@ -12,5 +12,6 @@ public interface JobExperienceService {
 	
 	DataResult<List<JobExperienceDto>> getJobExperienceListByCandidateId(int candidateId);
 	
+	DataResult<List<JobExperienceDto>> findAllByCandidateIdOrderByEndDateDesc(int candidateId);
 
 }
