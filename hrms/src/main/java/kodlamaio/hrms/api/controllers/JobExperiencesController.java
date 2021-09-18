@@ -38,4 +38,10 @@ public class JobExperiencesController {
 		
 		return this.jobExperienceService.getJobExperienceListByCandidateId(candidateId);
 	}
+	
+	@GetMapping("/findAllByCandidateIdOrderByEndDateDesc")
+	public DataResult<List<JobExperienceDto>> findAllByCandidateIdOrderByEndDateDesc(@RequestParam int candidateId){
+		
+		return this.jobExperienceService.findAllByCandidateIdOrderByEndDateDesc(candidateId);
+	}
 }
