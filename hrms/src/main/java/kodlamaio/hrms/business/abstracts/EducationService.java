@@ -5,7 +5,7 @@ import java.util.List;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.cvs.Education;
-import kodlamaio.hrms.entities.concretes.dtos.EducationDto;
+import kodlamaio.hrms.entities.concretes.dtos.cvDtos.EducationDto;
 
 public interface EducationService {
 	
