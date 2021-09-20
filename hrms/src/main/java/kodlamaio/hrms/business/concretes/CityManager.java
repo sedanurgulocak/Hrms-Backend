@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.CityService;
+import kodlamaio.hrms.core.utilities.modelMapper.DtoConverterService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.CityDao;
+import kodlamaio.hrms.entities.concretes.dtos.jobsDto.CityDto;
 import kodlamaio.hrms.entities.concretes.jobs.City;
 
 @Service
@@ -24,19 +26,24 @@ public class CityManager implements CityService{
 		super();
 		this.cityDao = cityDao;
 	}
+	
+	@Autowired 
+	private DtoConverterService dtoConverterService;
 
 	@Override
-	public Result add(City city) {
-		if(this.cityDao.existsCityByName(city.getName())) {
-			return new ErrorResult("Bu şehir zaten kayotlı");
+	public Result add(CityDto cityDto) {
+		if(this.cityDao.existsCityByName(cityDto.getName())) {
+			return new ErrorResult("Bu şehir zaten kayıtlı");
 		}
+		
+		City city = (City) this.dtoConverterService.dtoToEntity(cityDto, City.class);
 		this.cityDao.save(city);
 		return new SuccessResult("Şehir kaydedildi");
 	}
 
 	@Override
-	public DataResult<List<City>> getAll() {
-		return new SuccessDataResult<List<City>>(this.cityDao.findAll(), "Data listelendi");
+	public DataResult<List<CityDto>> getAll() {
+		return new SuccessDataResult<List<CityDto>>(this.dtoConverterService.entityToDto(this.cityDao.findAll(), CityDto.class), "Data listelendi");
 	}
 
 }
