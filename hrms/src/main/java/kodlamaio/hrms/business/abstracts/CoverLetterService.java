@@ -1,7 +1,7 @@
 package kodlamaio.hrms.business.abstracts;
 
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.dtos.CoverLetterDto;
+import kodlamaio.hrms.entities.concretes.dtos.cvDtos.CoverLetterDto;
 
 public interface CoverLetterService {
 	
