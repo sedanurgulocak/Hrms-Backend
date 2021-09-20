@@ -9,7 +9,7 @@ import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.CoverLetterDao;
 import kodlamaio.hrms.entities.concretes.cvs.CoverLetter;
-import kodlamaio.hrms.entities.concretes.dtos.CoverLetterDto;
+import kodlamaio.hrms.entities.concretes.dtos.cvDtos.CoverLetterDto;
 
 @Service
 public class CoverLetterManager implements CoverLetterService{
