@@ -13,7 +13,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.SkillDao;
 import kodlamaio.hrms.entities.concretes.cvs.Skill;
-import kodlamaio.hrms.entities.concretes.dtos.SkillDto;
+import kodlamaio.hrms.entities.concretes.dtos.cvDtos.SkillDto;
 
 @Service
 public class SkillManager implements SkillService{
