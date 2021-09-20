@@ -4,13 +4,13 @@ import java.util.List;
 
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.users.Employer;
+import kodlamaio.hrms.entities.concretes.dtos.userDtos.EmployerDto;
 
 public interface EmployerService {
 	
-	DataResult<List<Employer>> getAll();
+	DataResult<List<EmployerDto>> getAll();
 
-	Result add(Employer employer);
+	Result add(EmployerDto employerDto);
 	
 	boolean doEmailAndWebsiteHaveTheSameDomain(String email, String website);
 }
