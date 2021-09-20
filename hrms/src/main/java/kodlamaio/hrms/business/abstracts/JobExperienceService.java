@@ -4,7 +4,7 @@ import java.util.List;
 
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.dtos.JobExperienceDto;
+import kodlamaio.hrms.entities.concretes.dtos.cvDtos.JobExperienceDto;
 
 public interface JobExperienceService {
 	
