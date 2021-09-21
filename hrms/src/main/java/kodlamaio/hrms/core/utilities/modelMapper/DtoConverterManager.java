@@ -20,7 +20,7 @@ public class DtoConverterManager  implements DtoConverterService{
 	}
 
 	@Override
-	public <S, T> List<T> entityToDto(List<S> listTypeEntityClass, Class<T> targetDtoClass) {
+	public <S, T> List<T> listToDto(List<S> listTypeEntityClass, Class<T> targetDtoClass) {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		return listTypeEntityClass.stream().map(element -> modelMapper.map(element, targetDtoClass)).collect(Collectors.toList());
 	}

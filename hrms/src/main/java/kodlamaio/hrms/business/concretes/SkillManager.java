@@ -45,7 +45,7 @@ public class SkillManager implements SkillService{
 
 	@Override
 	public DataResult<List<SkillDto>> getSkillListByCandidateId(int candidateId) {
-		return new SuccessDataResult<List<SkillDto>>(this.dtoConverterService.entityToDto(this.skillDao.getSkillListByCandidateId(candidateId), SkillDto.class), "Yetenekler listelendi");
+		return new SuccessDataResult<List<SkillDto>>(this.dtoConverterService.listToDto(this.skillDao.getSkillListByCandidateId(candidateId), SkillDto.class), "Yetenekler listelendi");
 	}
 
 }

@@ -32,7 +32,7 @@ public class JobPositionManager implements JobPositionService{
 
 	@Override
 	public DataResult<List<JobPositionDto>> getAll() {
-		return new SuccessDataResult<List<JobPositionDto>>(this.dtoConverterService.entityToDto(this.jobPositionDao.findAll(), JobPositionDto.class), "Data listelendi") ;
+		return new SuccessDataResult<List<JobPositionDto>>(this.dtoConverterService.listToDto(this.jobPositionDao.findAll(), JobPositionDto.class), "Data listelendi") ;
 	}
 
 	@Override

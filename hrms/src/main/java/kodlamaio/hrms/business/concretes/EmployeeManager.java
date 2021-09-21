@@ -32,7 +32,7 @@ public class EmployeeManager implements EmployeeService{
 
 	@Override
 	public DataResult<List<EmployeeDto>> getAll() {
-		return new SuccessDataResult<List<EmployeeDto>>(this.dtoConverterService.entityToDto(this.employeeDao.findAll(), EmployeeDto.class), "Çalışanlar listelendi");
+		return new SuccessDataResult<List<EmployeeDto>>(this.dtoConverterService.listToDto(this.employeeDao.findAll(), EmployeeDto.class), "Çalışanlar listelendi");
 	}
 
 

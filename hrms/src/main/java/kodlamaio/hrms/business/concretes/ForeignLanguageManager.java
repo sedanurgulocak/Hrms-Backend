@@ -45,7 +45,7 @@ public class ForeignLanguageManager implements ForeignLanguageService{
 	@Override
 	public DataResult<List<ForeignLanguageDto>> getForeignLanguageListByCandidateId(int candidateId) {
 		
-		return new SuccessDataResult<List<ForeignLanguageDto>>(this.dtoConverterService.entityToDto(this.foreignLanguageDao.getForeignLanguageListByCandidateId(candidateId), ForeignLanguageDto.class), "Yabancı diller listelendi");
+		return new SuccessDataResult<List<ForeignLanguageDto>>(this.dtoConverterService.listToDto(this.foreignLanguageDao.getForeignLanguageListByCandidateId(candidateId), ForeignLanguageDto.class), "Yabancı diller listelendi");
 	}
 
 }
