@@ -3,7 +3,9 @@ package kodlamaio.hrms.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +42,11 @@ public class EducationsController {
 	@GetMapping("/findAllByCandidateIdOrderByEndDateDesc")
 	DataResult<List<EducationDto>> findAllByCandidateIdOrderByEndDateDesc(@RequestParam int candidateId){
 		return this.educationService.findAllByCandidateIdOrderByEndDateDesc(candidateId);
+	}
+	
+	@DeleteMapping("/deleteById/{id}")
+	public Result deleteById(@PathVariable("id") int id) {
+		return this.educationService.deleteById(id);
 	}
 
 }
