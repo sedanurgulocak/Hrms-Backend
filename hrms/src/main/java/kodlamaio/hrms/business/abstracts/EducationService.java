@@ -13,5 +13,7 @@ public interface EducationService {
 	DataResult<List<EducationDto>> getListEducationByCandidateId(int candidateId);
 	
 	DataResult<List<EducationDto>> findAllByCandidateIdOrderByEndDateDesc(int candidateId);
+	
+	Result deleteById(int id);
 
 }
