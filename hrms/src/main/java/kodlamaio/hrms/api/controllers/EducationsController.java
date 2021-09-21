@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hrms.business.abstracts.EducationService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.cvs.Education;
 import kodlamaio.hrms.entities.concretes.dtos.cvDtos.EducationDto;
 
 @RestController
@@ -28,18 +27,18 @@ public class EducationsController {
 		this.educationService = educationService;
 	}
 	
-	@PostMapping(name="/add")
+	@PostMapping("/add")
 	public Result add(@RequestBody EducationDto educationDto) {
 		return this.educationService.add(educationDto);
 	}
 	
-	@GetMapping(name="/getListEducationByCandidateId")
-	public DataResult<List<Education>> getListEducationByCandidateId(@RequestParam int candidateId){
+	@GetMapping("/getListEducationByCandidateId")
+	public DataResult<List<EducationDto>> getListEducationByCandidateId(@RequestParam int candidateId){
 		return this.educationService.getListEducationByCandidateId(candidateId);
 	}
 	
 	@GetMapping("/findAllByCandidateIdOrderByEndDateDesc")
-	DataResult<List<Education>> findAllByCandidateIdOrderByEndDateDesc(@RequestParam int candidateId){
+	DataResult<List<EducationDto>> findAllByCandidateIdOrderByEndDateDesc(@RequestParam int candidateId){
 		return this.educationService.findAllByCandidateIdOrderByEndDateDesc(candidateId);
 	}
 
