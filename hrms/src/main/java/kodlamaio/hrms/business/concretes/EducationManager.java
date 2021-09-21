@@ -48,4 +48,10 @@ public class EducationManager implements EducationService{
 		return new SuccessDataResult<List<EducationDto>>(this.dtoConverterService.entityToDto(this.educationDao.findAllByCandidateIdOrderByEndDateDesc(candidateId), EducationDto.class), "Eğitimler mezuniyet yılına göre sıralandı");
 	}
 
+	@Override
+	public Result deleteById(int id) {
+		this.educationDao.deleteById(id);
+		return new SuccessResult("Eğitim bilgisi listelendi");
+	}
+
 }
