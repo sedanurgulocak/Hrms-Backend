@@ -2,6 +2,7 @@ package kodlamaio.hrms.api.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.CoverLetterService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.dtos.cvDtos.CoverLetterDto;
 
@@ -42,6 +44,12 @@ public class CoverLettersControllers {
 	public Result deletebyId(@PathVariable("id") int id){
 		
 		return this.coverLetterService.deleteById(id);
+	}
+	
+	@GetMapping("/getByCandidateId")
+	public DataResult<CoverLetterDto> getByCandidateId(int candidateId){
+		
+		return this.coverLetterService.getByCandidateId(candidateId);
 	}
 
 }
