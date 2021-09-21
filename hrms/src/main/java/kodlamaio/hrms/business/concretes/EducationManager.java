@@ -13,7 +13,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.EducationDao;
 import kodlamaio.hrms.entities.concretes.cvs.Education;
-import kodlamaio.hrms.entities.concretes.dtos.EducationDto;
+import kodlamaio.hrms.entities.concretes.dtos.cvDtos.EducationDto;
 
 @Service
 public class EducationManager implements EducationService{
@@ -38,14 +38,20 @@ public class EducationManager implements EducationService{
 	}
 
 	@Override
-	public DataResult<List<Education>> getListEducationByCandidateId(int candidateId) {
-		return new SuccessDataResult<List<Education>>(this.educationDao.getByCandidateId(candidateId));
+	public DataResult<List<EducationDto>> getListEducationByCandidateId(int candidateId) {
+		return new SuccessDataResult<List<EducationDto>>(this.dtoConverterService.entityToDto(this.educationDao.getEducationListByCandidateId(candidateId), EducationDto.class),"adayın eğitimleri listelendi");
 	}
 
 
 	@Override
-	public DataResult<List<Education>> findAllByCandidateIdOrderByEndDateDesc(int candidateId) {
-		return new SuccessDataResult<List<Education>>(this.educationDao.findAllByCandidateIdOrderByEndDateDesc(candidateId), "Eğitimler mezuniyet yılına göre sıralandı");
+	public DataResult<List<EducationDto>> findAllByCandidateIdOrderByEndDateDesc(int candidateId) {
+		return new SuccessDataResult<List<EducationDto>>(this.dtoConverterService.entityToDto(this.educationDao.findAllByCandidateIdOrderByEndDateDesc(candidateId), EducationDto.class), "Eğitimler mezuniyet yılına göre sıralandı");
+	}
+
+	@Override
+	public Result deleteById(int id) {
+		this.educationDao.deleteById(id);
+		return new SuccessResult("Eğitim bilgisi listelendi");
 	}
 
 }

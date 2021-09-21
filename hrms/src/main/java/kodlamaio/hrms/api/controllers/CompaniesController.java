@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.hrms.business.abstracts.CompanyService;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.jobs.Company;
+import kodlamaio.hrms.entities.concretes.dtos.jobsDto.CompanyDto;
 
 @RestController
 @RequestMapping("api/companies")
@@ -23,8 +23,8 @@ public class CompaniesController {
 	}
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Company company) {
-		return this.companyService.add(company);
+	public Result add(@RequestBody CompanyDto companyDto) {
+		return this.companyService.add(companyDto);
 	}
 
 }

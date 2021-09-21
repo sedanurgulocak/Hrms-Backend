@@ -11,7 +11,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.SocialLinkDao;
 import kodlamaio.hrms.entities.concretes.cvs.SocialLink;
-import kodlamaio.hrms.entities.concretes.dtos.SocialLinkDto;
+import kodlamaio.hrms.entities.concretes.dtos.cvDtos.SocialLinkDto;
 
 @Service
 public class SocialLinkManager implements SocialLinkService{

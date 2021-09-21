@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kodlamaio.hrms.business.abstracts.CityService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.jobs.City;
+import kodlamaio.hrms.entities.concretes.dtos.jobsDto.CityDto;
 
 @RestController
 @RequestMapping("api/cities")
@@ -27,12 +27,12 @@ public class CitiesController {
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody City city) {
-		return this.cityService.add(city);
+	public Result add(@RequestBody CityDto cityDto) {
+		return this.cityService.add(cityDto);
 	}
 	
 	@GetMapping("/getAll")
-	public DataResult<List<City>> getAll(){
+	public DataResult<List<CityDto>> getAll(){
 		return this.cityService.getAll();
 	}
 }
