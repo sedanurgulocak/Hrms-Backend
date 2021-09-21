@@ -13,7 +13,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobExperienceDao;
 import kodlamaio.hrms.entities.concretes.cvs.JobExperience;
-import kodlamaio.hrms.entities.concretes.dtos.JobExperienceDto;
+import kodlamaio.hrms.entities.concretes.dtos.cvDtos.JobExperienceDto;
 
 @Service
 public class JobExperienceManager implements JobExperienceService{

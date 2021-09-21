@@ -4,19 +4,19 @@ import java.util.List;
 
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
-import kodlamaio.hrms.entities.concretes.jobs.JobAdvertisement;
+import kodlamaio.hrms.entities.concretes.dtos.jobsDto.JobAdvertisementDto;
 
 public interface JobAdvertisementService {
 	
-	Result add(JobAdvertisement jobAdvertisement);
+	Result add(JobAdvertisementDto jobAdvertisementDto);
 
-	DataResult<List<JobAdvertisement>> getAll();
+	DataResult<List<JobAdvertisementDto>> getAll();
 	
-	DataResult<List<JobAdvertisement>> getAllActives();
+	DataResult<List<JobAdvertisementDto>> getAllActives();
 	
-	DataResult<List<JobAdvertisement>> getAllSortedDate();
+	DataResult<List<JobAdvertisementDto>> getAllSortedDate();
 	
-	DataResult<List<JobAdvertisement>> getAllActiveAndByCompany(String companyName);
+	DataResult<List<JobAdvertisementDto>> getAllActiveAndByCompany(String companyName);
 	
 	Result setJobAdvertisementStatus(int id);
 }

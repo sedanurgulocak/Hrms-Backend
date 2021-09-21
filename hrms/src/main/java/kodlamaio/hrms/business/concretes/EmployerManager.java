@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.EmployerService;
+import kodlamaio.hrms.core.utilities.modelMapper.DtoConverterService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
@@ -14,6 +15,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.core.verifications.abstracts.EmailVerificationService;
 import kodlamaio.hrms.core.verifications.abstracts.EmployeeConfirmService;
 import kodlamaio.hrms.dataAccess.abstracts.EmployerDao;
+import kodlamaio.hrms.entities.concretes.dtos.userDtos.EmployerDto;
 import kodlamaio.hrms.entities.concretes.users.Employer;
 
 @Service
@@ -33,27 +35,32 @@ public class EmployerManager implements EmployerService{
 	@Autowired(required=false)
 	private EmployeeConfirmService employeeConfirmService;
 	
+	@Autowired
+	private DtoConverterService dtoConverterService;
+	
 	
 	@Override
-	public DataResult<List<Employer>> getAll() {
-		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll(),"İş verenler listelendi");
+	public DataResult<List<EmployerDto>> getAll() {
+		return new SuccessDataResult<List<EmployerDto>>(this.dtoConverterService.entityToDto(this.employerDao.findAll(), EmployerDto.class),"İş verenler listelendi");
 	}
 
 	@Override
-	public Result add(Employer employer) {
+	public Result add(EmployerDto employerDto) {
 		
-		if(employer.getCompanyName() == null || employer.getWebAddress() == null || employer.getPhoneNumber() == null
-				 || employer.getEmail() == null || employer.getPassword() == null || employer.getPasswordAgain() == null || employer.getType() == null ) {
+		Employer employer = (Employer) dtoConverterService.dtoToEntity(employerDto, Employer.class);
+		
+		if(employerDto.getCompanyName() == null || employerDto.getWebAddress() == null || employerDto.getPhoneNumber() == null
+				 || employerDto.getEmail() == null || employerDto.getPassword() == null || employerDto.getPasswordAgain() == null || employerDto.getType() == null ) {
 			return new ErrorResult("Tüm alanlar zorunlu");
 			
-		}else if(!employer.getPassword().equals(employer.getPasswordAgain())) {
+		}else if(!employerDto.getPassword().equals(employerDto.getPasswordAgain())) {
 			return new ErrorResult("Şifre ve şifre tekrarı aynı değil");
 			
-		}else if(!doEmailAndWebsiteHaveTheSameDomain(employer.getEmail(), employer.getWebAddress())){//Email, web adresi ile aynı domaine sahip mi
+		}else if(!doEmailAndWebsiteHaveTheSameDomain(employerDto.getEmail(), employerDto.getWebAddress())){//Email, web adresi ile aynı domaine sahip mi
 			return new ErrorResult("Email web site ile aynı domaine sahip değil");
 			
 		}
-		else if(!this.emailVerificationService.isVerifed(employer.getEmail())) {
+		else if(!this.emailVerificationService.isVerifed(employerDto.getEmail())) {
 			return new ErrorResult("Email onaylanmadı");
 			
 		}
@@ -61,7 +68,7 @@ public class EmployerManager implements EmployerService{
 			return new ErrorResult("Sistem personeli onaylamadı");
 			
 		}
-		else if(this.employerDao.existsEmployerByEmail(employer.getEmail())) {
+		else if(this.employerDao.existsEmployerByEmail(employerDto.getEmail())) {
 			return new ErrorResult("Email adresi zaten kayıtlı");
 		}
 		

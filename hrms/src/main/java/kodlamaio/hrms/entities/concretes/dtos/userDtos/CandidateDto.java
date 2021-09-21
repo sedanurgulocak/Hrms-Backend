@@ -1,4 +1,4 @@
-package kodlamaio.hrms.entities.concretes.dtos;
+package kodlamaio.hrms.entities.concretes.dtos.userDtos;
 
 import lombok.Data;
 

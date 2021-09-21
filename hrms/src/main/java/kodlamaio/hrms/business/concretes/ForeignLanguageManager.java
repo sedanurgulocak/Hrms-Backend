@@ -13,7 +13,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.ForeignLanguageDao;
 import kodlamaio.hrms.entities.concretes.cvs.ForeignLanguage;
-import kodlamaio.hrms.entities.concretes.dtos.ForeignLanguageDto;
+import kodlamaio.hrms.entities.concretes.dtos.cvDtos.ForeignLanguageDto;
 
 @Service
 public class ForeignLanguageManager implements ForeignLanguageService{
