@@ -1,5 +1,6 @@
 package kodlamaio.hrms.business.abstracts;
 
+import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.dtos.cvDtos.CoverLetterDto;
 
@@ -10,5 +11,7 @@ public interface CoverLetterService {
 	Result update(int candidateId, String text);
 	
 	Result deleteById(int id);
+	
+	DataResult<CoverLetterDto> getByCandidateId(int candidateId);
 
 }

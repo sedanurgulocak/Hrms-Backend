@@ -55,8 +55,8 @@ public class Candidate extends User{
 	@OneToMany(mappedBy="candidate")
 	private List<ForeignLanguage> foreignLanguages;
 	
-	@OneToMany(mappedBy="candidate")
-	private List<SocialLink> socialLinks;
+	@OneToOne(mappedBy="candidate")
+	private SocialLink socialLink;
 	
 	@OneToMany(mappedBy="candidate")
 	private List<Skill> skills;

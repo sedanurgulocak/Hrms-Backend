@@ -53,4 +53,11 @@ public class SocialLinkManager implements SocialLinkService{
 		return new SuccessResult("Sosyal linkler silindi");
 	}
 
+
+	@Override
+	public DataResult<SocialLinkDto> getByCandidateId(int candidateId) {
+		SocialLinkDto socialLinkDto = (SocialLinkDto) this.dtoConverterService.dtoToEntity(this.socialLinkDao.getByCandidateId(candidateId), SocialLinkDto.class);
+		return new SuccessDataResult<SocialLinkDto>(socialLinkDto, "Adayın sosyal medya bilgileri getirildi");
+	}
+
 }

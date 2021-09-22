@@ -7,6 +7,7 @@ import kodlamaio.hrms.entities.concretes.dtos.cvDtos.SocialLinkDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -44,5 +45,11 @@ public class SocialLinksController {
 	public Result deleteById(@PathVariable("id") int id){
 		
 		return this.socialLinkService.deleteById(id);
+	}
+	
+	@GetMapping("/getByCandidateId")
+	public DataResult<SocialLinkDto> getByCandidateId(int candidateId){
+		
+		return this.socialLinkService.getByCandidateId(candidateId);
 	}
 }

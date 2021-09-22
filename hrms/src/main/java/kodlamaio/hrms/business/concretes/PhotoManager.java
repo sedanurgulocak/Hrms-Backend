@@ -5,9 +5,10 @@ import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.CandidateService;
 import kodlamaio.hrms.business.abstracts.PhotoService;
-import kodlamaio.hrms.core.adapters.CloudinaryAdapter;
-import kodlamaio.hrms.core.adapters.PhotoUploadManager;
+import kodlamaio.hrms.core.adapters.CloudinaryAdapterService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.PhotoDao;
 import kodlamaio.hrms.entities.concretes.cvs.Photo;
@@ -27,19 +28,29 @@ public class PhotoManager implements PhotoService{
 	@Autowired
 	private CandidateService candidateService;
 	
+	@Autowired
+	private CloudinaryAdapterService cloudinaryAdapterService;
 
 	@Override
 	public Result add(String link, int candidateId) {
-		PhotoUploadManager photoUploadManager = new PhotoUploadManager(new CloudinaryAdapter());
-		photoUploadManager.uploadToPhoto(link);
+
+		this.cloudinaryAdapterService.uploadToPhoto(link);
 		
 		Candidate candidate = this.candidateService.getById(candidateId);
 		Photo photo = new Photo();
 		photo.setCandidate(candidate);
-		photo.setPhotoUrl(link);
+		photo.setPhotoUrl(this.cloudinaryAdapterService.getUrl());
 		this.photoDao.save(photo);
 		
 		return new SuccessResult("Adayın fotoğrafı eklendi");
+	}
+
+
+	@Override
+	public DataResult<String> getPhotoUrlByCandidateId(int candidateId) {
+		Photo photo = this.photoDao.getByCandidateId(candidateId);
+		return new SuccessDataResult<String>(photo.getPhotoUrl(), "Aday fotoğrafı getirildi");
+		
 	}
 
 }
