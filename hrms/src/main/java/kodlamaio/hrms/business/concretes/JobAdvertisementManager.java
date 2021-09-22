@@ -40,12 +40,12 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 
 	@Override
 	public DataResult<List<JobAdvertisementDto>> getAll() {
-		return new SuccessDataResult<List<JobAdvertisementDto>>(this.dtoConverterService.entityToDto(this.jobAdvertisementDao.findAll(), JobAdvertisementDto.class),"Data listelendi");
+		return new SuccessDataResult<List<JobAdvertisementDto>>(this.dtoConverterService.listToDto(this.jobAdvertisementDao.findAll(), JobAdvertisementDto.class),"Data listelendi");
 	}
 
 	@Override
 	public DataResult<List<JobAdvertisementDto>> getAllActives() {
-		return new SuccessDataResult<List<JobAdvertisementDto>>(this.dtoConverterService.entityToDto(this.jobAdvertisementDao.queryJobAdvertisementByStatusTrue(), JobAdvertisementDto.class) , "Aktif iş ilanları listelendi");
+		return new SuccessDataResult<List<JobAdvertisementDto>>(this.dtoConverterService.listToDto(this.jobAdvertisementDao.queryJobAdvertisementByStatusTrue(), JobAdvertisementDto.class) , "Aktif iş ilanları listelendi");
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		//return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAll(sort));
 	
 		List<JobAdvertisement> jobAdvertisements = jobAdvertisementDao.findAll(Sort.by(Sort.Direction.DESC, "createDate"));
-		return new SuccessDataResult<List<JobAdvertisementDto>>(this.dtoConverterService.entityToDto(jobAdvertisements, JobAdvertisementDto.class) , "İş ilanları tarihe göre sıralandı");
+		return new SuccessDataResult<List<JobAdvertisementDto>>(this.dtoConverterService.listToDto(jobAdvertisements, JobAdvertisementDto.class) , "İş ilanları tarihe göre sıralandı");
 
 	}
 
@@ -67,7 +67,7 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 				jobAdvertisementActives.add(jobAdvertisement);
 			}
 		}
-		return new SuccessDataResult<List<JobAdvertisementDto>>(this.dtoConverterService.entityToDto(jobAdvertisementActives, JobAdvertisementDto.class) ,"Şirkete ait aktif iş ilanları listelendi");
+		return new SuccessDataResult<List<JobAdvertisementDto>>(this.dtoConverterService.listToDto(jobAdvertisementActives, JobAdvertisementDto.class) ,"Şirkete ait aktif iş ilanları listelendi");
 	}
 
 	@Override

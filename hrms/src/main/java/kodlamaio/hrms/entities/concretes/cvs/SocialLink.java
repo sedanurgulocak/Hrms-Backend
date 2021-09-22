@@ -6,8 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import kodlamaio.hrms.entities.concretes.users.Candidate;
 import lombok.AllArgsConstructor;
@@ -32,7 +34,8 @@ public class SocialLink {
 	@Column(name="linkedin_link")
 	private String linledinLink;
 	
-	@ManyToOne()
+	@OneToOne()
+	@JsonIgnore
 	@JoinColumn(name="candidate_id")
 	private Candidate candidate;
 	

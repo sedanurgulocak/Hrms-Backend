@@ -38,12 +38,12 @@ public class JobExperienceManager implements JobExperienceService{
 
 	@Override
 	public DataResult<List<JobExperienceDto>> getJobExperienceListByCandidateId(int candidateId) {
-		return new SuccessDataResult<List<JobExperienceDto>>(this.dtoConverterService.entityToDto(this.jobExperienceDao.getJobExperienceListByCandidateId(candidateId), JobExperienceDto.class), "İş tecrübeleri listelendi");
+		return new SuccessDataResult<List<JobExperienceDto>>(this.dtoConverterService.listToDto(this.jobExperienceDao.getJobExperienceListByCandidateId(candidateId), JobExperienceDto.class), "İş tecrübeleri listelendi");
 	}
 
 	@Override
 	public DataResult<List<JobExperienceDto>> findAllByCandidateIdOrderByEndDateDesc(int candidateId) {
-		return new SuccessDataResult<List<JobExperienceDto>>(this.dtoConverterService.entityToDto(this.jobExperienceDao.findAllByCandidateIdOrderByEndDateDesc(candidateId), JobExperienceDto.class), "İş tecrübeleri sıralandı");
+		return new SuccessDataResult<List<JobExperienceDto>>(this.dtoConverterService.listToDto(this.jobExperienceDao.findAllByCandidateIdOrderByEndDateDesc(candidateId), JobExperienceDto.class), "İş tecrübeleri sıralandı");
 	}
 
 	@Override

@@ -1,6 +1,10 @@
 package kodlamaio.hrms.core.adapters;
 
-public interface PhotoUploadService {
+
+public interface CloudinaryAdapterService {
 
 	void uploadToPhoto(String photoUrl);
+	
+	String getUrl();
+	
 }

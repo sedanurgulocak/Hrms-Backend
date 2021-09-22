@@ -43,7 +43,7 @@ public class CityManager implements CityService{
 
 	@Override
 	public DataResult<List<CityDto>> getAll() {
-		return new SuccessDataResult<List<CityDto>>(this.dtoConverterService.entityToDto(this.cityDao.findAll(), CityDto.class), "Data listelendi");
+		return new SuccessDataResult<List<CityDto>>(this.dtoConverterService.listToDto(this.cityDao.findAll(), CityDto.class), "Data listelendi");
 	}
 
 }

@@ -41,7 +41,7 @@ public class EmployerManager implements EmployerService{
 	
 	@Override
 	public DataResult<List<EmployerDto>> getAll() {
-		return new SuccessDataResult<List<EmployerDto>>(this.dtoConverterService.entityToDto(this.employerDao.findAll(), EmployerDto.class),"İş verenler listelendi");
+		return new SuccessDataResult<List<EmployerDto>>(this.dtoConverterService.listToDto(this.employerDao.findAll(), EmployerDto.class),"İş verenler listelendi");
 	}
 
 	@Override

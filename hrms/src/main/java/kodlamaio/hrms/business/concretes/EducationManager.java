@@ -39,13 +39,13 @@ public class EducationManager implements EducationService{
 
 	@Override
 	public DataResult<List<EducationDto>> getListEducationByCandidateId(int candidateId) {
-		return new SuccessDataResult<List<EducationDto>>(this.dtoConverterService.entityToDto(this.educationDao.getEducationListByCandidateId(candidateId), EducationDto.class),"adayın eğitimleri listelendi");
+		return new SuccessDataResult<List<EducationDto>>(this.dtoConverterService.listToDto(this.educationDao.getEducationListByCandidateId(candidateId), EducationDto.class),"adayın eğitimleri listelendi");
 	}
 
 
 	@Override
 	public DataResult<List<EducationDto>> findAllByCandidateIdOrderByEndDateDesc(int candidateId) {
-		return new SuccessDataResult<List<EducationDto>>(this.dtoConverterService.entityToDto(this.educationDao.findAllByCandidateIdOrderByEndDateDesc(candidateId), EducationDto.class), "Eğitimler mezuniyet yılına göre sıralandı");
+		return new SuccessDataResult<List<EducationDto>>(this.dtoConverterService.listToDto(this.educationDao.findAllByCandidateIdOrderByEndDateDesc(candidateId), EducationDto.class), "Eğitimler mezuniyet yılına göre sıralandı");
 	}
 
 	@Override

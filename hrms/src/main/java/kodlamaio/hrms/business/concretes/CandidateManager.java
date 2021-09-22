@@ -41,7 +41,7 @@ public class CandidateManager implements CandidateService {
 
 	@Override
 	public DataResult<List<CandidateDto>> getAll() {
-		return new SuccessDataResult<List<CandidateDto>>(this.dtoConverterService.entityToDto(this.candidateDao.findAll(), CandidateDto.class), "Adaylar listelendi");
+		return new SuccessDataResult<List<CandidateDto>>(this.dtoConverterService.listToDto(this.candidateDao.findAll(), CandidateDto.class), "Adaylar listelendi");
 	}
 
 

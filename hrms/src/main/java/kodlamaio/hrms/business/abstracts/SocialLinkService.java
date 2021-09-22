@@ -11,5 +11,7 @@ public interface SocialLinkService {
 	DataResult<SocialLinkDto> update(int candidateId, String githubLink, String linkedinLink);
 	
 	Result deleteById(int id);
+	
+	DataResult<SocialLinkDto> getByCandidateId(int candidateId);
 
 }
