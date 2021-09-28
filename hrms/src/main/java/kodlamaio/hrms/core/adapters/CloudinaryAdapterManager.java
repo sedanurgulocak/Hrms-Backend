@@ -35,7 +35,7 @@ public class CloudinaryAdapterManager implements CloudinaryAdapterService{
 					"api_key", properties.getProperty("api_key"),
 					"api_secret", properties.getProperty("api_secret")
 					));
-			 Map uploadResult = cloudinary.uploader().upload(photoUrl, ObjectUtils.asMap());
+			 Map<?, ?> uploadResult = cloudinary.uploader().upload(photoUrl, ObjectUtils.asMap());
 			 
 			 setUrl((String) uploadResult.get("url"));
 			 

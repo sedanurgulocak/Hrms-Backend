@@ -8,6 +8,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -34,15 +36,23 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "educations", "jobExperiences", "foreignLanguages", "socialLinks", "skills"})
 public class Candidate extends User{
 
+	@NotBlank
+	@NotNull
 	@Column(name="first_name")
 	private String firstName;
 	
+	@NotBlank
+	@NotNull
 	@Column(name="last_name")
 	private String lastName;
 	
+	@NotBlank
+	@NotNull
 	@Column(name="national_identity")
 	private String nationalIdentity;
 	
+	@NotBlank
+	@NotNull
 	@Column(name="date_of_birth")
 	private String dateOfBirth;
 	
