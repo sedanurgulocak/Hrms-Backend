@@ -10,6 +10,12 @@
 
 ## :tada: Getting Started
 
+## :pencil: Swagger UI Api Documentation
+![Ekran görüntüsü 2021-09-28 223229](https://user-images.githubusercontent.com/64933639/135153945-91822fc3-5246-40c8-8706-c6255813eb28.png)
+
+![Ekran görüntüsü 2021-09-28 223254](https://user-images.githubusercontent.com/64933639/135154141-4eeb4b15-eb1c-46f7-a92b-61d6ab046fa5.png)
+
+
 
 ### :floppy_disk: Entity Relationship Diagram (ERD)
 ![ERD-2-9](https://user-images.githubusercontent.com/64933639/131818990-9cce18ae-3257-45e8-a9fa-55a185caec60.png)
