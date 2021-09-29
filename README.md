@@ -15,6 +15,16 @@
 
 ![Ekran görüntüsü 2021-09-28 223254](https://user-images.githubusercontent.com/64933639/135154141-4eeb4b15-eb1c-46f7-a92b-61d6ab046fa5.png)
 
+### Models
+
+![Ekran görüntüsü 2021-09-29 223245](https://user-images.githubusercontent.com/64933639/135336909-adcb3717-f4d4-44e6-88d1-eb91cc06cfd8.png)
+
+![Ekran görüntüsü 2021-09-29 223334](https://user-images.githubusercontent.com/64933639/135336991-2e3019e2-9c6d-411d-ae09-9cfb937a1e9d.png)
+
+![Ekran görüntüsü 2021-09-29 223601](https://user-images.githubusercontent.com/64933639/135337040-26dddbdd-72e5-4b61-aacc-89379aa69b5b.png)
+
+![Ekran görüntüsü 2021-09-29 223632](https://user-images.githubusercontent.com/64933639/135337070-d76f8a0b-e50f-4ea2-8c19-ce1465c026ae.png)
+
 
 
 ### :floppy_disk: Entity Relationship Diagram (ERD)
